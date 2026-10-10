@@ -1,0 +1,12 @@
+.git
+.github
+__pycache__
+*.pyc
+*.log
+.env
+.vscode
+.idea
+docs
+README.md
+*.zip
+*.rar

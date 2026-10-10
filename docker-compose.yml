@@ -1,0 +1,29 @@
+services:
+  pox:
+    build:
+      context: .
+      dockerfile: docker/pox/Dockerfile
+    container_name: sdn-security-pox
+    expose:
+      - "6633"
+    stdin_open: true
+    tty: true
+    networks:
+      - sdn-lab
+
+  mininet:
+    build:
+      context: .
+      dockerfile: docker/mininet/Dockerfile
+    container_name: sdn-security-mininet
+    privileged: true
+    depends_on:
+      - pox
+    stdin_open: true
+    tty: true
+    networks:
+      - sdn-lab
+
+networks:
+  sdn-lab:
+    name: sdn-security-lab
